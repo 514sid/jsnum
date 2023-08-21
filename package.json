@@ -1,6 +1,6 @@
 {
 	"name": "@514sid/jsnum",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"description": "Helper for parsing numbers with support for various thousands and decimal separators.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
