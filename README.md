@@ -5,7 +5,7 @@ TypeScript port of an accurate [PHP helper](https://github.com/514sid/num) for p
 ## Installation
 
 ```
-$ npm install @514sid/num
+$ npm install @514sid/jsnum
 ```
 
 ## What It Does
