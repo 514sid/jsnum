@@ -1,4 +1,6 @@
 # Num (JS)
+![Tests](https://github.com/514sid/jsnum/actions/workflows/test.yml/badge.svg)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/514sid/jsnum/pulls)
 
 TypeScript port of an accurate [PHP helper](https://github.com/514sid/num) for parsing numbers from strings with support for various thousands and decimal separators.
 
