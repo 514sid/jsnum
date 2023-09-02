@@ -1,4 +1,5 @@
 import { decimalSeparators } from './decimalSeparators';
+import { DecimalSeparator } from './types';
 
 export class NumberValidator {
     public static canBeInteger(input: string): boolean {
@@ -11,9 +12,12 @@ export class NumberValidator {
 
         const separatorPosition = NumberValidator.findSeparatorPosition(cleanedInput, separatorCounts);
 
+        const separator = separatorCounts.commaCount > separatorCounts.pointCount ? decimalSeparators.comma : decimalSeparators.point
+
         return (
             NumberValidator.hasValidAmountOfDigitsBeforeSeparator(separatorPosition) &&
-            NumberValidator.hasValidAmountOfDigitsAfterSeparator(cleanedInput, separatorPosition)
+            NumberValidator.hasValidAmountOfDigitsAfterSeparator(cleanedInput, separatorPosition) &&
+            (separator !== NumberValidator.deviceDecimalSeparator())
         );
     }
 
@@ -46,5 +50,13 @@ export class NumberValidator {
     private static hasValidAmountOfDigitsAfterSeparator(input: string, separatorPosition: number): boolean {
         const decimalPart = input.substr(separatorPosition + 1);
         return decimalPart.length === 3;
+    }
+
+    public static deviceDecimalSeparator(): DecimalSeparator {
+        const n: number = 1.1;
+        const formattedNumber: string = n.toLocaleString();
+        const decimalSeparator: string = formattedNumber.substring(1, 2);
+
+        return decimalSeparator === '.' ? decimalSeparators.point : decimalSeparators.comma
     }
 }
